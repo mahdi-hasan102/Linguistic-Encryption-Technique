@@ -1,0 +1,131 @@
+<cdk-accordion class="example-accordion">
+  <p><b>Text1: </b>{{ text1 }}</p>
+  <p><b>OTP: </b>{{ lastMessage.key }}</p>
+  <!-- Unique Words Section -->
+  <cdk-accordion-item
+    #uniqueWordsAccordionItem="cdkAccordionItem"
+    class="example-accordion-item"
+    [attr.aria-expanded]="uniqueWordsAccordionItem.expanded"
+  >
+    <div
+      class="example-accordion-item-header"
+      (click)="uniqueWordsAccordionItem.toggle()"
+    >
+      Unique Words for Text1
+      <span class="example-accordion-item-description">
+        Click to {{ uniqueWordsAccordionItem.expanded ? "close" : "open" }}
+      </span>
+    </div>
+    <div
+      class="example-accordion-item-body"
+      [style.display]="uniqueWordsAccordionItem.expanded ? '' : 'none'"
+    >
+      <ul>
+        <li *ngFor="let word of uniqueWordsText1">{{ word }}</li>
+      </ul>
+    </div>
+  </cdk-accordion-item>
+
+  <!-- G1 Matrix Section -->
+  <cdk-accordion-item
+    #matrixAccordionItem="cdkAccordionItem"
+    class="example-accordion-item"
+    [attr.aria-expanded]="matrixAccordionItem.expanded"
+  >
+    <div
+      class="example-accordion-item-header"
+      (click)="matrixAccordionItem.toggle()"
+    >
+      G1 Matrix for Text1
+      <span class="example-accordion-item-description">
+        Click to {{ matrixAccordionItem.expanded ? "close" : "open" }}
+      </span>
+    </div>
+    <div
+      class="example-accordion-item-body"
+      [style.display]="matrixAccordionItem.expanded ? '' : 'none'"
+    >
+      <div class="container matrix">
+        <table>
+          <thead>
+            <tr>
+              <th>Word</th>
+              <th>Matrix</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let word of uniqueWordsText1">
+              <td>{{ word }}</td>
+              <td>{{ matrix_g[word] ? matrix_g[word].join(" ") : "" }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </cdk-accordion-item>
+
+  <!-- Text2 Section -->
+  <cdk-accordion-item
+    #text2MessageAccordionItem="cdkAccordionItem"
+    class="example-accordion-item"
+  >
+    <div
+      class="example-accordion-item-header"
+      (click)="text2MessageAccordionItem.toggle()"
+    >
+      Text2
+      <span class="example-accordion-item-description">
+        Click to {{ text2MessageAccordionItem.expanded ? "close" : "open" }}
+      </span>
+    </div>
+    <div
+      class="example-accordion-item-body"
+      [style.display]="text2MessageAccordionItem.expanded ? '' : 'none'"
+    >
+      <p>{{ text2 }}</p>
+    </div>
+  </cdk-accordion-item>
+  <cdk-accordion-item
+    #indexMessageAccordionItem="cdkAccordionItem"
+    class="example-accordion-item"
+  >
+    <div
+      class="example-accordion-item-header"
+      (click)="indexMessageAccordionItem.toggle()"
+    >
+      index
+      <span class="example-accordion-item-description">
+        Click to {{ indexMessageAccordionItem.expanded ? "close" : "open" }}
+      </span>
+    </div>
+    <div
+      class="example-accordion-item-body"
+      [style.display]="indexMessageAccordionItem.expanded ? '' : 'none'"
+    >
+      <p>Index: {{ index }}</p>
+      <p>Encrypted Index: {{ encryptedIndex }}</p>
+    </div>
+  </cdk-accordion-item>
+
+  <cdk-accordion-item
+    #dataMessageAccordionItem="cdkAccordionItem"
+    class="example-accordion-item"
+  >
+    <div
+      class="example-accordion-item-header"
+      (click)="dataMessageAccordionItem.toggle()"
+    >
+      data
+      <span class="example-accordion-item-description">
+        Click to {{ dataMessageAccordionItem.expanded ? "close" : "open" }}
+      </span>
+    </div>
+    <div
+      class="example-accordion-item-body"
+      [style.display]="dataMessageAccordionItem.expanded ? '' : 'none'"
+    >
+      <p>text1: {{ countWords(text1) }}</p>
+      <p>text2: {{ countWords(text2) }}</p>
+    </div>
+  </cdk-accordion-item>
+</cdk-accordion>

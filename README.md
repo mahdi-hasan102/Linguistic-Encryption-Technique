@@ -1,2 +1,3 @@
-# Linguistic-Encryption-Technique
-A Linguistic Encryption Technique with Low redundancy
+# Security
+
+Live demo: https://message-security.netlify.app/sender
